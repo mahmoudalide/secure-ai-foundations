@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this toolkit, please cite it as below."
+type: software
+title: "Secure AI Foundations: An Open Toolkit for Connecting AI to Customer-Data Platforms Securely"
+version: 0.1.0
+date-released: 2026-11-08
+repository-code: "https://github.com/mahmoudalide/secure-ai-foundations"
+abstract: >-
+  Secure AI Foundations (SAF) is an open toolkit for organizations that run
+  critical customer-data platforms, starting with small and mid-size U.S.
+  communications providers. It contains an AI-workload security control
+  baseline, an AI governance template mapped to the NIST AI Risk Management
+  Framework 1.0, an AI-readiness checklist for CRM and customer-data
+  platforms, and OLIR-style mappings to NIST CSF 2.0, SP 800-53 Rev. 5 and
+  AI RMF 1.0. Version 0.1.0 is a draft for feedback.
+authors:
+  - family-names: Ali
+    given-names: Mahmoud
+    email: mail@mahmoudali.de
+    orcid: "https://orcid.org/0009-0004-9059-5737"
+    website: "https://mahmoudali.de"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+keywords:
+  - AI security
+  - AI governance
+  - NIST AI RMF
+  - NIST CSF 2.0
+  - NIST SP 800-53
+  - OLIR
+  - CRM
+  - customer data
+  - CPNI
+  - communications providers
+  - Kubernetes
+references:
+  - type: report
+    title: "Security and Governance in Multi-Cloud Kubernetes Platforms: Lessons from Enterprise Deployments"
+    authors:
+      - family-names: Ali
+        given-names: Mahmoud
+    year: 2026
+    doi: 10.5281/zenodo.20538172
+    publisher:
+      name: Zenodo

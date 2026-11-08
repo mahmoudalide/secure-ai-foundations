@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+# SAF-09: dedicated namespace for one AI use case, with Pod Security Admission
+# enforcing the "restricted" Pod Security Standard.
+# Replace the label values with your own use-case ID and owner.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ai-ticket-summarizer
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+    saf.example/use-case-id: UC-0001
+    saf.example/owner: team-customer-care-it
+    saf.example/data-classification: confidential

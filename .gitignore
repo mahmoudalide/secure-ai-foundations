@@ -1,0 +1,9 @@
+REVIEW_NOTES_FOR_MAHMOUD.md
+.DS_Store
+__pycache__/
+.obsidian/
+*.pyc
+*.tmp
+*.swp
+*~
+.env

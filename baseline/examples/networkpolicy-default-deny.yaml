@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: Apache-2.0
+# SAF-07 / SAF-09: deny all ingress and egress for every pod in the AI namespace.
+# Apply this first, then add the narrow allow rules in networkpolicy-allow-egress-gateway.yaml.
+# NetworkPolicy only takes effect if your network plugin (CNI) enforces it - verify this.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: ai-ticket-summarizer
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
