@@ -19,9 +19,9 @@ authors:
     email: mail@mahmoudali.de
     orcid: "https://orcid.org/0009-0004-9059-5737"
     website: "https://mahmoudali.de"
-license:
-  - Apache-2.0
-  - CC-BY-4.0
+# Zenodo accepts one license here. Documentation (Markdown) is CC BY 4.0;
+# code, configuration and data files are Apache-2.0 (see LICENSE and README).
+license: CC-BY-4.0
 keywords:
   - AI security
   - AI governance
