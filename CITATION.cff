@@ -3,6 +3,14 @@ message: "If you use this toolkit, please cite it as below."
 type: software
 title: "Secure AI Foundations: An Open Toolkit for Connecting AI to Customer-Data Platforms Securely"
 version: 0.1.0
+doi: 10.5281/zenodo.24059793
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24059793
+    description: "Concept DOI: always resolves to the latest version"
+  - type: doi
+    value: 10.5281/zenodo.24059794
+    description: "Version DOI for v0.1.0"
 date-released: 2026-11-08
 repository-code: "https://github.com/mahmoudalide/secure-ai-foundations"
 abstract: >-

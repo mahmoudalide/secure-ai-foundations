@@ -1,5 +1,7 @@
 # Secure AI Foundations (SAF)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24059793.svg)](https://doi.org/10.5281/zenodo.24059793)
+
 **An open toolkit for connecting AI to customer-data platforms securely.**
 
 Status: **v0.1 draft - feedback wanted.** Not yet piloted or independently reviewed. Do not treat it as a standard.
@@ -86,7 +88,9 @@ NIST identifiers and the short NIST element descriptions in `mappings/saf_mappin
 
 ## How to cite
 
-See `CITATION.cff`. Suggested: Ali, M. (2026). *Secure AI Foundations* (Version 0.1.0) [Computer software and documentation].
+See `CITATION.cff`. Suggested: Ali, M. (2026). *Secure AI Foundations* (Version 0.1.0) [Computer software and documentation]. Zenodo. https://doi.org/10.5281/zenodo.24059794
+
+To cite all versions, use the concept DOI https://doi.org/10.5281/zenodo.24059793, which always resolves to the latest release.
 
 ## Disclaimer
 
