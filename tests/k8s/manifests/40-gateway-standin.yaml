@@ -1,0 +1,73 @@
+# Stand-in "AI gateway". The allow policy selects namespace ai-gateway (by its immutable
+# kubernetes.io/metadata.name label) and pods labelled app=ai-gateway, TCP 8443.
+# nginx listens on 8443 (must be ALLOWED) and 8080 (must stay BLOCKED). Plain HTTP is
+# enough to test the network path.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ai-gateway
+  labels:
+    saf-test: "true"
+    pod-security.kubernetes.io/enforce: restricted
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-conf
+  namespace: ai-gateway
+data:
+  default.conf: |
+    server {
+      listen 8443;
+      listen 8080;
+      location / { return 200 "ai-gateway stand-in\n"; }
+    }
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ai-gateway
+  namespace: ai-gateway
+  labels:
+    app: ai-gateway
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 101
+    runAsGroup: 101
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: nginx
+      image: nginxinc/nginx-unprivileged:1.29-alpine
+      ports:
+        - containerPort: 8443
+        - containerPort: 8080
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+      volumeMounts:
+        - name: conf
+          mountPath: /etc/nginx/conf.d
+  volumes:
+    - name: conf
+      configMap:
+        name: gateway-conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-gateway
+  namespace: ai-gateway
+spec:
+  selector:
+    app: ai-gateway
+  ports:
+    - name: https
+      port: 8443
+      targetPort: 8443
+    - name: http-alt
+      port: 8080
+      targetPort: 8080

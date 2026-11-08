@@ -2,6 +2,14 @@
 
 All notable changes to Secure AI Foundations are recorded here. Versions follow [Semantic Versioning](https://semver.org/): while the major version is 0, any release may change control IDs, levels or mappings.
 
+## [Unreleased]
+
+### Added
+- Live-cluster test of the Kubernetes examples (`tests/k8s/run_tests.sh`, test manifests, `tests/k8s/RESULTS_2026-11-08.md`): 32 checks passed on Kubernetes v1.36.4 with kindnet, single node.
+
+### Fixed
+- `baseline/README.md`: the one-step server-side dry run fails on a fresh cluster because the namespace is not created; the validation is now described in two steps.
+
 ## [0.1.0] - 2026-11-08 (draft for feedback)
 
 ### Added

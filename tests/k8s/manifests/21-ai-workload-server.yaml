@@ -1,0 +1,37 @@
+# Compliant web server inside the AI namespace; target for the ingress test.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: saf-test-server
+  namespace: ai-ticket-summarizer
+  labels:
+    app: saf-test-server
+spec:
+  serviceAccountName: uc-0001-summarizer
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 101
+    runAsGroup: 101
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: nginx
+      image: nginxinc/nginx-unprivileged:1.29-alpine
+      ports:
+        - containerPort: 8080
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saf-test-server
+  namespace: ai-ticket-summarizer
+spec:
+  selector:
+    app: saf-test-server
+  ports:
+    - port: 8080
+      targetPort: 8080

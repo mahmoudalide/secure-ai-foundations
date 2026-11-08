@@ -1,0 +1,13 @@
+# Expected: REJECTED by Pod Security Admission (restricted) - privileged container.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: saf-test-privileged
+  namespace: ai-ticket-summarizer
+spec:
+  containers:
+    - name: c
+      image: busybox:1.37.0
+      command: ["sleep", "3600"]
+      securityContext:
+        privileged: true

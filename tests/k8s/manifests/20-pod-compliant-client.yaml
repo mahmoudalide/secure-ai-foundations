@@ -1,0 +1,24 @@
+# Expected: ADMITTED under "restricted". Uses the example ServiceAccount (no token automount).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: saf-test-client
+  namespace: ai-ticket-summarizer
+  labels:
+    app: saf-test-client
+spec:
+  serviceAccountName: uc-0001-summarizer
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 100
+    runAsGroup: 101
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: curl
+      image: curlimages/curl:8.17.0
+      command: ["sleep", "infinity"]
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]

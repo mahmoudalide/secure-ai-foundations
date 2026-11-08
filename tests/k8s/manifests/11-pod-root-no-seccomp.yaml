@@ -1,0 +1,13 @@
+# Expected: REJECTED by Pod Security Admission (restricted) - runs as root, no seccompProfile.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: saf-test-root
+  namespace: ai-ticket-summarizer
+spec:
+  containers:
+    - name: c
+      image: busybox:1.37.0
+      command: ["sleep", "3600"]
+      securityContext:
+        runAsUser: 0
